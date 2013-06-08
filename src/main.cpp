@@ -342,6 +342,7 @@ void PezRender()
 
     // Draw the HUD
     glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
     glUseProgram(programs.overlay);
     glUniform2f(u("InverseViewport"),
                 1.0f / PezGetConfig().Width,
@@ -350,6 +351,7 @@ void PezRender()
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindTexture(GL_TEXTURE_2D, 0);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
 
     pezCheckGL("Render Loop");
 }
